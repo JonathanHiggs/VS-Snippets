@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Nice dependency property</Title>
+            <Author>Jonathan Higgs</Author>
+            <Description>Inserts a nice dependency property</Description>
+            <Shortcut>dp</Shortcut>
+        </Header>
+        <Snippet>           
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>field</ID>
+                    <ToolTip>The variable backing this property</ToolTip>
+                    <Default>myVar</Default>
+                </Literal>
+                <Literal default="true" Editable="false">
+                    <ID>classname</ID>
+                    <ToolTip>Class name</ToolTip>
+                    <Function>ClassName()</Function>
+                    <Default>ClassNamePlaceholder</Default>
+                </Literal>
+            </Declarations>
+            <Imports>
+                <Import>
+                    <Namespace>System.Windows</Namespace>
+                </Import>
+            </Imports>
+            <Code Language="CSharp">
+                <![CDATA[#region $property$
+
+/// <summary>
+/// Gets the <see cref="$property$"/> dependency property
+/// </summary>
+public static readonly DependencyProperty $property$Property
+    = DependencyProperty.Register(
+        nameof($property$),
+        typeof($type$),
+        typeof($classname$),
+        new PropertyMetadata());
+
+
+/// <summary>
+/// Gets and sets the $property$ field
+/// </summary>
+public $type$ $property$
+{
+    get => ($type$)GetValue($property$Property);
+    set => SetValue($property$Property, value);
+}
+
+#endregion]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

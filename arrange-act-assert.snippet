@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Arrange-Act-Assert</Title>
+            <Author>Jonathan Higgs</Author>
+            <Description>Arrange-Act-Assert test pattern</Description>
+            <Shortcut>aaa</Shortcut>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>method</ID>
+                    <ToolTip>Method under test</ToolTip>
+                    <Default>Method</Default>
+                </Literal>
+                <Literal>
+                    <ID>condition</ID>
+                    <ToolTip>Assumption of the test</ToolTip>
+                    <Default>Condition</Default>
+                </Literal>
+                <Literal>
+                    <ID>expectation</ID>
+                    <ToolTip>The expected outcome from the test</ToolTip>
+                    <Default>Expectation</Default>
+                </Literal>
+                <Literal>
+                    <ID>thing</ID>
+                    <ToolTip>Instance of the class under test</ToolTip>
+                    <Default>myClass</Default>
+                </Literal>
+                <Literal>
+                    <ID>class</ID>
+                    <ToolTip>Class under test</ToolTip>
+                    <Default>MyClass</Default>
+                </Literal>
+                <Literal>
+                    <ID>variable</ID>
+                    <ToolTip>Result variable</ToolTip>
+                    <Default>result</Default>
+                </Literal>
+                <Literal>
+                    <ID>check</ID>
+                    <ToolTip>NUnit assert condition</ToolTip>
+                    <Default>Is.</Default>
+                </Literal>
+            </Declarations>
+            <Imports>
+                <Import>
+                    <Namespace>NUnit.Framework</Namespace>
+                </Import>
+            </Imports>
+            <Code Language="CSharp">
+                <![CDATA[[Test]
+        public void $method$_With$condition$_$expectation$()
+        {
+            // Arrange
+            var $thing$ = new $class$($end$);
+
+            // Act
+            var $variable$ = $thing$.$method$();
+
+            // Assert
+            Assert.That($variable$, $check$);
+        }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
